@@ -1,0 +1,2 @@
+h2xml.py -D__STDC_CONSTANT_MACROS -c -I/usr/include/taglib tag_c.h -o taglib.xml
+xml2py.py taglib.xml -o taglib.py -l libtag_c.so -v
