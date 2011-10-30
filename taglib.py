@@ -1,6 +1,7 @@
 from ctypes import *
 from ctypes.util import find_library
 import sys
+import os
 
 def ext():
     if sys.platform[:3] in ('win', 'cyg'):
@@ -10,23 +11,30 @@ def ext():
     else: # assume UNIX-like
         return 'so'
 
-def loadlibrary():
+def loadlibrary(lib):
     e = ""
-    for libname in ('tag_c', 'libtag_c'):
+    for libname in (lib, 'lib' + lib):
+        oslib = libname + '.' + ext()
         for path in (
             find_library(libname),
-            libname + '.' + ext(),
-            './' + libname + '.' + ext()):
+            libname,
+            oslib,
+            os.path.join(os.path.dirname(__file__), oslib),
+            './' + oslib):
             if path:
                 try:
                     return CDLL(path) # TODO: just check whether it's loadable?
                 except OSError, error:
-                    e += '\n\t' + str(error)
+                    e += '\n\t' + path + ': ' + str(error)
                     pass
     raise OSError, e
 
+def loadlibraries():
+    sys.path.append(os.path.dirname(__file__))
+    return (loadlibrary(lib) for lib in ('z', 'tag', 'tag_c'))
+
 _libraries = {}
-_libraries['libtag_c.so'] = loadlibrary()
+_libraries['libtag_c.so'] = list(loadlibraries())[-1]
 STRING = c_char_p
 
 
