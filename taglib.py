@@ -67,9 +67,9 @@ taglib_set_strings_unicode.argtypes = [c_int]
 taglib_set_string_management_enabled = _libraries['libtag_c.so'].taglib_set_string_management_enabled
 taglib_set_string_management_enabled.restype = None
 taglib_set_string_management_enabled.argtypes = [c_int]
-taglib_free = _libraries['libtag_c.so'].taglib_free
-taglib_free.restype = None
-taglib_free.argtypes = [c_void_p]
+#taglib_free = _libraries['libtag_c.so'].taglib_free
+#taglib_free.restype = None
+#taglib_free.argtypes = [c_void_p]
 
 # values for enumeration 'TagLib_File_Type'
 TagLib_File_Type = c_int # enum
@@ -173,7 +173,7 @@ __all__ = ['taglib_tag_comment', 'TagLib_ID3v2_Encoding',
            'TagLib_File_MP4', 'taglib_tag_genre', 'taglib_tag_title',
            'TagLib_File_ASF', 'taglib_tag_set_artist',
            'taglib_tag_free_strings', 'taglib_file_save',
-           'TagLib_File_OggVorbis', 'taglib_free',
+           'TagLib_File_OggVorbis', #'taglib_free',
            'taglib_file_new_type', 'taglib_tag_set_year',
            'taglib_tag_artist', 'taglib_file_new',
            'TagLib_ID3v2_UTF16', 'TagLib_File', 'TagLib_File_MPC',
