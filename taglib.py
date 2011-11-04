@@ -69,6 +69,18 @@ class TagLib_AudioProperties(Structure):
 TagLib_AudioProperties._fields_ = [
     ('dummy', c_int),
 ]
+class _TagLib_Pictures(Structure):
+    pass
+_TagLib_Pictures._fields_ = [
+    ('real', POINTER(_TagLib_Pictures)),
+    ('i', c_uint),
+]
+TagLib_Pictures = _TagLib_Pictures
+class TagLib_Picture(Structure):
+    pass
+TagLib_Picture._fields_ = [
+    ('dummy', c_int),
+]
 taglib_set_strings_unicode = _libraries['libtag_c.so'].taglib_set_strings_unicode
 taglib_set_strings_unicode.restype = None
 taglib_set_strings_unicode.argtypes = [c_int]

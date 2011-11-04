@@ -21,8 +21,19 @@ def display (f):
      print("    year: \"%i\"" % taglib_tag_year(tag))
      print(" comment: \"%s\"" % taglib_tag_comment(tag))
      print("   track: \"%i\"" % taglib_tag_track(tag))
-     print("   genre: \"%s\"\n" % taglib_tag_genre(tag))
-	
+     print("   genre: \"%s\"" % taglib_tag_genre(tag))
+
+    print(" pictures: \"%i\"" % taglib_file_picture_count(file))
+    pictures = taglib_file_pictures(file)
+    while True:
+      picture = taglib_pictures_next(pictures)
+      if not picture:
+        break
+      print("           %s %s" % (taglib_picture_typename(picture), taglib_picture_mimetype(picture)))
+
+    if bool(tag):
+        print
+
     properties = taglib_file_audioproperties(file)
     if bool(properties):
      duration = taglib_audioproperties_length(properties)
