@@ -24,12 +24,8 @@ def display (f):
      print("   genre: \"%s\"" % taglib_tag_genre(tag))
 
     print(" pictures: \"%i\"" % taglib_file_picture_count(file))
-    pictures = taglib_file_pictures(file)
-    while True:
-      picture = taglib_pictures_next(pictures)
-      if not picture:
-        break
-      print("           %s %s" % (taglib_picture_typename(picture), taglib_picture_mimetype(picture)))
+    for picture in pictures(file):
+      print("           %s %s" % (picture.typename, picture.mimetype))
 
     if bool(tag):
         print
