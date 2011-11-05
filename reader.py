@@ -25,7 +25,7 @@ def display (f):
 
     print(" pictures: \"%i\"" % taglib_file_picture_count(file))
     for picture in pictures(file):
-      print("           %s %s" % (picture.typename, picture.mimetype))
+      print("           %s %s %i" % (picture.typename, picture.mimetype, len(picture.base64data)))
 
     if bool(tag):
         print
@@ -49,7 +49,10 @@ def visit (a, d, fs):
   display(os.path.join(d,f))
 
 def walk (p):
- os.path.walk (p, visit, {})
+ if os.path.isfile(p):
+   display(p)
+ else:
+   os.path.walk (p, visit, {})
 
 def main(args=None):
     optparse = OptionParser('%prog <dir | file ...>', version="1.7.0",

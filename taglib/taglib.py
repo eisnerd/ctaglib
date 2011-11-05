@@ -126,6 +126,9 @@ taglib_pictures_next.argtypes = [POINTER(TagLib_Pictures)]
 taglib_picture_data = _libraries['libtag_c.so'].taglib_picture_data
 taglib_picture_data.restype = STRING
 taglib_picture_data.argtypes = [POINTER(TagLib_Picture)]
+taglib_picture_base64data = _libraries['libtag_c.so'].taglib_picture_base64data
+taglib_picture_base64data.restype = STRING
+taglib_picture_base64data.argtypes = [POINTER(TagLib_Picture)]
 taglib_picture_mimetype = _libraries['libtag_c.so'].taglib_picture_mimetype
 taglib_picture_mimetype.restype = STRING
 taglib_picture_mimetype.argtypes = [POINTER(TagLib_Picture)]
@@ -204,9 +207,10 @@ TagLib_ID3v2_Encoding = c_int # enum
 taglib_id3v2_set_default_text_encoding = _libraries['libtag_c.so'].taglib_id3v2_set_default_text_encoding
 taglib_id3v2_set_default_text_encoding.restype = None
 taglib_id3v2_set_default_text_encoding.argtypes = [TagLib_ID3v2_Encoding]
-__all__ = ['taglib_tag_comment', 'TagLib_ID3v2_Encoding',
-           'TagLib_File_FLAC', 'taglib_audioproperties_length',
-           'TagLib_Picture', 'TagLib_ID3v2_UTF8', 'taglib_file_free',
+__all__ = ['taglib_tag_comment', 'taglib_picture_base64data',
+           'TagLib_ID3v2_Encoding', 'TagLib_File_FLAC',
+           'taglib_audioproperties_length', 'TagLib_Picture',
+           'TagLib_ID3v2_UTF8', 'taglib_file_free',
            'taglib_tag_track', 'taglib_file_save',
            'taglib_tag_set_album', 'taglib_tag_year',
            'taglib_audioproperties_channels', 'TagLib_Pictures',

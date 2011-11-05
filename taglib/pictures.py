@@ -3,6 +3,7 @@ from taglib import *
 class Picture(object):
     mapping = {
         'data': taglib_picture_data,
+	'base64data': taglib_picture_base64data,
         'mimetype': taglib_picture_mimetype,
         'description': taglib_picture_description,
         'typename': taglib_picture_typename,
