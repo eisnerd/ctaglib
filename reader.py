@@ -15,17 +15,19 @@ def display (f):
 	
     tag = taglib_file_tag(file)
     if bool(tag):
-     print("   title: \"%s\"" % taglib_tag_title(tag))
-     print("  artist: \"%s\"" % taglib_tag_artist(tag))
-     print("   album: \"%s\"" % taglib_tag_album(tag))
-     print("    year: \"%i\"" % taglib_tag_year(tag))
-     print(" comment: \"%s\"" % taglib_tag_comment(tag))
-     print("   track: \"%i\"" % taglib_tag_track(tag))
-     print("   genre: \"%s\"" % taglib_tag_genre(tag))
+     print("        title: \"%s\"" % taglib_tag_title(tag))
+     print("       artist: \"%s\"" % taglib_tag_artist(tag))
+     print(" album artist: \"%s\"" % taglib_tag_album_artist(tag))
+     print("        album: \"%s\"" % taglib_tag_album(tag))
+     print("         year: \"%i\"" % taglib_tag_year(tag))
+     print("      comment: \"%s\"" % taglib_tag_comment(tag))
+     print("        track: \"%i\"" % taglib_tag_track(tag))
+     print("        genre: \"%s\"" % taglib_tag_genre(tag))
+     print("     grouping: \"%s\"" % taglib_tag_grouping(tag))
 
-    print(" pictures: \"%i\"" % taglib_file_picture_count(file))
+    print("     pictures: \"%i\"" % taglib_file_picture_count(file))
     for picture in pictures(file):
-      print("           %s %s %i" % (picture.typename, picture.mimetype, len(picture.base64data)))
+      print("               %s %s %i" % (picture.typename, picture.mimetype, len(picture.base64data)))
 
     if bool(tag):
         print

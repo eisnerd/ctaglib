@@ -150,6 +150,9 @@ taglib_tag_title.argtypes = [POINTER(TagLib_Tag)]
 taglib_tag_artist = _libraries['libtag_c.so'].taglib_tag_artist
 taglib_tag_artist.restype = STRING
 taglib_tag_artist.argtypes = [POINTER(TagLib_Tag)]
+taglib_tag_album_artist = _libraries['libtag_c.so'].taglib_tag_album_artist
+taglib_tag_album_artist.restype = STRING
+taglib_tag_album_artist.argtypes = [POINTER(TagLib_Tag)]
 taglib_tag_album = _libraries['libtag_c.so'].taglib_tag_album
 taglib_tag_album.restype = STRING
 taglib_tag_album.argtypes = [POINTER(TagLib_Tag)]
@@ -159,6 +162,9 @@ taglib_tag_comment.argtypes = [POINTER(TagLib_Tag)]
 taglib_tag_genre = _libraries['libtag_c.so'].taglib_tag_genre
 taglib_tag_genre.restype = STRING
 taglib_tag_genre.argtypes = [POINTER(TagLib_Tag)]
+taglib_tag_grouping = _libraries['libtag_c.so'].taglib_tag_grouping
+taglib_tag_grouping.restype = STRING
+taglib_tag_grouping.argtypes = [POINTER(TagLib_Tag)]
 taglib_tag_year = _libraries['libtag_c.so'].taglib_tag_year
 taglib_tag_year.restype = c_uint
 taglib_tag_year.argtypes = [POINTER(TagLib_Tag)]
@@ -171,6 +177,9 @@ taglib_tag_set_title.argtypes = [POINTER(TagLib_Tag), STRING]
 taglib_tag_set_artist = _libraries['libtag_c.so'].taglib_tag_set_artist
 taglib_tag_set_artist.restype = None
 taglib_tag_set_artist.argtypes = [POINTER(TagLib_Tag), STRING]
+taglib_tag_set_album_artist = _libraries['libtag_c.so'].taglib_tag_set_album_artist
+taglib_tag_set_album_artist.restype = None
+taglib_tag_set_album_artist.argtypes = [POINTER(TagLib_Tag), STRING]
 taglib_tag_set_album = _libraries['libtag_c.so'].taglib_tag_set_album
 taglib_tag_set_album.restype = None
 taglib_tag_set_album.argtypes = [POINTER(TagLib_Tag), STRING]
@@ -180,6 +189,9 @@ taglib_tag_set_comment.argtypes = [POINTER(TagLib_Tag), STRING]
 taglib_tag_set_genre = _libraries['libtag_c.so'].taglib_tag_set_genre
 taglib_tag_set_genre.restype = None
 taglib_tag_set_genre.argtypes = [POINTER(TagLib_Tag), STRING]
+taglib_tag_set_grouping = _libraries['libtag_c.so'].taglib_tag_set_grouping
+taglib_tag_set_grouping.restype = None
+taglib_tag_set_grouping.argtypes = [POINTER(TagLib_Tag), STRING]
 taglib_tag_set_year = _libraries['libtag_c.so'].taglib_tag_set_year
 taglib_tag_set_year.restype = None
 taglib_tag_set_year.argtypes = [POINTER(TagLib_Tag), c_uint]
@@ -214,11 +226,12 @@ __all__ = ['taglib_tag_comment', 'taglib_picture_base64data',
            'taglib_tag_track', 'taglib_file_save',
            'taglib_tag_set_album', 'taglib_tag_year',
            'taglib_audioproperties_channels', 'TagLib_Pictures',
-           'taglib_id3v2_set_default_text_encoding',
-           '__STDC_CONSTANT_MACROS', '_TagLib_Pictures', 'TagLib_Tag',
-           'TagLib_File_WavPack', 'taglib_file_audioproperties',
-           'TagLib_File_TrueAudio', 'taglib_tag_set_comment',
-           'TagLib_File_Type', 'taglib_set_string_management_enabled',
+           'taglib_tag_album_artist', '__STDC_CONSTANT_MACROS',
+           '_TagLib_Pictures', 'TagLib_Tag', 'TagLib_File_WavPack',
+           'taglib_file_audioproperties', 'TagLib_File_TrueAudio',
+           'taglib_tag_set_comment', 'TagLib_File_Type',
+           'taglib_audioproperties_bitrate',
+           'taglib_set_string_management_enabled',
            'taglib_tag_set_title', 'taglib_pictures_next',
            'taglib_tag_album', 'TagLib_File_MP4',
            'taglib_file_picture_count', 'taglib_picture_description',
@@ -227,15 +240,17 @@ __all__ = ['taglib_tag_comment', 'taglib_picture_base64data',
            'taglib_file_picture', 'taglib_picture_data',
            'TagLib_File_OggVorbis', #'taglib_free',
            'taglib_file_new_type', 'taglib_tag_set_year',
-           'taglib_picture_typecode',
-           'taglib_audioproperties_bitrate',
+           'taglib_picture_typecode', 'taglib_tag_grouping',
            'taglib_picture_mimetype', 'taglib_tag_artist',
            'taglib_file_pictures', 'taglib_file_new',
            'TagLib_ID3v2_UTF16', 'TagLib_File', 'TagLib_File_MPC',
-           'TagLib_AudioProperties', 'TagLib_File_Speex',
-           'taglib_picture_typename', 'taglib_set_strings_unicode',
+           'TagLib_AudioProperties', 'taglib_tag_set_album_artist',
+           'TagLib_File_Speex', 'taglib_picture_typename',
+           'taglib_set_strings_unicode',
+           'taglib_id3v2_set_default_text_encoding',
            'taglib_file_tag', 'taglib_tag_set_genre',
            'TagLib_File_MPEG', 'TagLib_ID3v2_Latin1',
            'taglib_file_is_valid', 'TagLib_File_OggFlac',
            'taglib_tag_set_track', 'TagLib_ID3v2_UTF16BE',
-           'taglib_audioproperties_samplerate']
+           'taglib_audioproperties_samplerate',
+           'taglib_tag_set_grouping']
